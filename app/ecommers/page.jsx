@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import "../styles/ecommers.css";
 
 export default function EcommersStorePage() {
@@ -51,8 +52,8 @@ export default function EcommersStorePage() {
       {/* HERO SECTION */}
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-title">Nuevos Productos Esenciales</h1>
-          <p className="hero-text">Cómodos, modernos y versátiles.</p>
+          <h1 className="hero-title">Nuevos Productos</h1>
+          <p className="hero-text">Ven y compra lo que necesitas.</p>
           <a href="#productos" className="hero-button">
             Ver productos
           </a>
@@ -89,20 +90,22 @@ export default function EcommersStorePage() {
           <div id="productos" className="productos-grid">
             {productosFiltrados.map((p) => (
               <div key={p.id} className="product-card">
-                <div className="image-container">
-                  <img
-                    src={p.imagen || "/img/default.jpg"}
-                    alt={p.nombre}
-                    className="product-image"
-                  />
-                </div>
-                <div className="product-info">
-                  <h2 className="product-name">{p.nombre}</h2>
-                  <p className="product-price">${Number(p.precio).toLocaleString()}</p>
-                  <button onClick={() => handleAgregar(p)} className="add-btn">
-                    Agregar al carrito
-                  </button>
-                </div>
+                <Link href={`/ecommers/producto/${p.id}`} className="product-card-link">
+                  <div className="image-container">
+                    <img
+                      src={p.imagen || "/placeholder.svg"}
+                      alt={p.nombre}
+                      className="product-image"
+                    />
+                  </div>
+                  <div className="product-info">
+                    <h2 className="product-name">{p.nombre}</h2>
+                    <p className="product-price">${Number(p.precio).toLocaleString()}</p>
+                  </div>
+                </Link>
+                <button onClick={() => handleAgregar(p)} className="add-btn">
+                  Agregar al carrito
+                </button>
               </div>
             ))}
           </div>

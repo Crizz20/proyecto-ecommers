@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <nav className="navbar" role="navigation" aria-label="Barra principal">
       <div className="nav-content">
-        <Link href="/ecommers" className="logo"> CrizMarket </Link>
+        <Link href="/ecommers" className="logo"> ByteMarket </Link>
 
         <div className="menu-desktop">
           <Link href="/ecommers">Inicio</Link>
