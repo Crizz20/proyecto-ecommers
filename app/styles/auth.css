@@ -1,0 +1,73 @@
+/* auth.css */
+
+body {
+  background-color: #111827; /* Fondo oscuro */
+  color: white;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+.form-container {
+  background-color: #1f2937; /* gris oscuro */
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f3f4f6;
+}
+
+.input {
+  width: 90%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #374151;
+  color: white;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.form-btn {
+  width: 97%;
+  padding: 0.75rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.sign-up-label {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.sign-up-link {
+  color: #60a5fa;
+  margin-left: 0.20rem;
+  text-decoration: underline;
+}
