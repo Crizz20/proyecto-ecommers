@@ -1,29 +1,27 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import InputCustom from "./common/input";
 import { useAuth } from "../app/context/AuthContext";
 
-
-
-export default function LoginForm() {
+function LoginContent() {
   const router = useRouter();
   const { login } = useAuth();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [resetMessage, setResetMessage] = useState("");
 
- const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
 
-useEffect(() => {
-  const reset = searchParams.get("reset");
-  if (reset === "success") {
-    setResetMessage("✅ Tu contraseña fue restablecida correctamente. Inicia sesión con tu nueva contraseña.");
-    setTimeout(() => setResetMessage(""), 5000);
-  }
-}, [searchParams]);
-
-
+  useEffect(() => {
+    const reset = searchParams.get("reset");
+    if (reset === "success") {
+      setResetMessage(
+        "✅ Tu contraseña fue restablecida correctamente. Inicia sesión con tu nueva contraseña."
+      );
+      setTimeout(() => setResetMessage(""), 5000);
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
     setFormData({
@@ -33,31 +31,31 @@ useEffect(() => {
   };
 
   const handleLogin = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
+    e.preventDefault();
+    setIsLoading(true);
 
-  const res = await fetch("/api/usuarios/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      correo: formData.email,
-      contrasena: formData.password,
-    }),
-  });
+    const res = await fetch("/api/usuarios/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        correo: formData.email,
+        contrasena: formData.password,
+      }),
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  if (res.ok) {
+    if (res.ok) {
       localStorage.setItem("token", data.token);
-      login(data.usuario); // ⬅️ Esto actualiza el estado global instantáneamente
+      login(data.usuario);
       alert(data.msg || "Inicio de sesión exitoso");
       router.push("/ecommers");
     } else {
       alert(data.msg || "Credenciales incorrectas");
     }
 
-  setIsLoading(false);
-};
+    setIsLoading(false);
+  };
 
   return (
     <div className="form-wrapper">
@@ -108,5 +106,14 @@ useEffect(() => {
         </p>
       </div>
     </div>
+  );
+}
+
+// 👇 ESTE componente es el que exportas y envuelves en Suspense
+export default function LoginForm() {
+  return (
+    <Suspense fallback={<div>Cargando formulario...</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }
