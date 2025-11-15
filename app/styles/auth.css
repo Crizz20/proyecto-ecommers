@@ -106,3 +106,178 @@ body {
   border-color: #14b8a6;
   transform: translateY(-2px);
 }
+
+/* ====== RESPONSIVE ====== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    min-height: auto;
+    align-items: center;
+  }
+  
+  .form-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
+  .form-container {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 0.875rem;
+    font-size: 16px;
+  }
+  
+  .form-btn {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+  
+  .auth-continue-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .auth-continue-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  .continue-shopping-link {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 600px) {
+  body {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .form-wrapper {
+    padding: 0.75rem;
+  }
+  
+  .form-container {
+    padding: 1.25rem;
+    border-radius: 6px;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.65rem;
+    margin-bottom: 0.75rem;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
+  .form-btn {
+    width: 100%;
+    padding: 0.65rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+  
+  .sign-up-label {
+    font-size: 0.85rem;
+    margin-top: 0.875rem;
+  }
+  
+  .auth-continue-section {
+    padding: 1.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .auth-continue-section h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .continue-shopping-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
+  }
+}
+
+/* Móviles muy pequeños (320px - 480px) */
+@media (max-width: 480px) {
+  body {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .form-wrapper {
+    padding: 0.5rem;
+  }
+  
+  .form-container {
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .title {
+    font-size: 1rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  .input {
+    padding: 0.6rem;
+    margin-bottom: 0.65rem;
+    font-size: 16px;
+  }
+  
+  .form-btn {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .sign-up-label {
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
+  }
+  
+  .sign-up-link {
+    margin-left: 0.1rem;
+  }
+  
+  .auth-continue-section {
+    padding: 1rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth-continue-section h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.65rem;
+  }
+  
+  .continue-shopping-link {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}

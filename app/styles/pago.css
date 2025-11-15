@@ -229,29 +229,65 @@
 
 /* ====== RESPONSIVE ====== */
 @media (max-width: 1024px) {
+  .pago-container {
+    padding: 1.5rem 0.75rem;
+  }
+  
   .pago-form {
     max-width: 600px;
     padding: 2rem;
+  }
+  
+  .pago-header {
+    max-width: 600px;
+  }
+  
+  .pago-info {
+    max-width: 600px;
   }
 }
 
 @media (max-width: 768px) {
   .pago-container {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
+    min-height: auto;
   }
 
   .pago-form {
-    max-width: 500px;
+    max-width: 100%;
+    max-width: 600px;
     padding: 1.5rem;
     gap: 1.5rem;
   }
 
+  .pago-header {
+    max-width: 100%;
+    max-width: 600px;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
   .pago-header h2 {
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pago-header p {
+    font-size: 0.95rem;
+  }
+
+  .pago-header strong {
+    font-size: 1.1rem;
   }
 
   .pago-section h3 {
     font-size: 1rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .pago-form-group label {
+    font-size: 0.85rem;
   }
 
   .pago-input {
@@ -268,22 +304,45 @@
     padding: 1rem;
     font-size: 0.95rem;
   }
+
+  .pago-security-note {
+    padding: 1rem;
+  }
+
+  .pago-security-note p {
+    font-size: 0.9rem;
+  }
+
+  .pago-info {
+    max-width: 100%;
+    max-width: 600px;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .pago-info p {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 600px) {
   .pago-container {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.75rem;
   }
 
   .pago-form {
     max-width: 100%;
     padding: 1.25rem;
     gap: 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
   }
 
   .pago-header {
-    padding: 1rem 0.5rem;
+    padding: 0.75rem 0;
+    margin-bottom: 1.25rem;
+    border-bottom: 1.5px solid #30363d;
+    width: 100%;
+    max-width: 100%;
   }
 
   .pago-header h2 {
@@ -295,14 +354,14 @@
     font-size: 0.9rem;
   }
 
+  .pago-header strong {
+    font-size: 1rem;
+  }
+
   .pago-section h3 {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
-  }
-
-  .pago-form-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    padding-bottom: 0.5rem;
   }
 
   .pago-form-group {
@@ -316,6 +375,12 @@
   .pago-input {
     font-size: 0.85rem;
     padding: 0.7rem 0.8rem;
+    border-radius: 6px;
+  }
+
+  .pago-form-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 
   .pago-btn-submit {
@@ -324,7 +389,8 @@
   }
 
   .pago-security-note {
-    padding: 0.9rem;
+    padding: 0.875rem;
+    border-radius: 6px;
   }
 
   .pago-security-note p {
@@ -332,11 +398,101 @@
   }
 
   .pago-info {
-    padding-top: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
+    padding-top: 0.875rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .pago-info p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pago-container {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .pago-form {
+    padding: 1rem;
+    gap: 0.875rem;
+    border-radius: 8px;
+  }
+
+  .pago-header {
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #30363d;
+  }
+
+  .pago-header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .pago-header p {
     font-size: 0.8rem;
+  }
+
+  .pago-header strong {
+    font-size: 0.9rem;
+  }
+
+  .pago-section h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .pago-form-group {
+    gap: 0.3rem;
+  }
+
+  .pago-form-group label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2px;
+  }
+
+  .pago-input {
+    font-size: 0.8rem;
+    padding: 0.65rem 0.7rem;
+    border-radius: 6px;
+  }
+
+  .pago-input::placeholder {
+    font-size: 0.75rem;
+  }
+
+  .pago-form-row {
+    gap: 0.5rem;
+  }
+
+  .pago-btn-submit {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+
+  .pago-security-note {
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .pago-security-note p {
+    font-size: 0.75rem;
+  }
+
+  .pago-info {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .pago-info p {
+    font-size: 0.7rem;
+  }
+
+  .pago-info a {
+    font-size: 0.7rem;
   }
 }
