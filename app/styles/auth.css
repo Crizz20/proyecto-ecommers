@@ -71,3 +71,38 @@ body {
   margin-left: 0.20rem;
   text-decoration: underline;
 }
+
+/* ====== CONTINUE SECTION ====== */
+.auth-continue-section {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-continue-section h3 {
+  color: #f3f4f6;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.continue-shopping-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #2dd4bf;
+  color: #0d1117;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  border: 2px solid #2dd4bf;
+}
+
+.continue-shopping-link:hover {
+  background-color: #14b8a6;
+  border-color: #14b8a6;
+  transform: translateY(-2px);
+}

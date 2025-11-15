@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense } from "react";
-import LoginForm from "../../../components/LoginForm";
+import LoginForm from "../../components/LoginForm";
 import "../../styles/auth.css";
 
 export default function LoginPage() {

@@ -3,7 +3,7 @@
 // app/ecommers/layout.jsx
 import { AuthProvider } from "../context/AuthContext";
 import { usePathname } from "next/navigation";
-import Navbar from "../../components/Navbar";
+import Navbar from "../components/Navbar";
 
 export default function EcommersLayout({ children }) {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ export default function EcommersLayout({ children }) {
         {pathname !== "/ecommers/login" && pathname !== "/ecommers/signup" && <Navbar />}
         <main className="main-content">{children}</main>
         <footer className="footer">
-          <p>&copy; {new Date().getFullYear()} CrizMarket — Todos los derechos reservados</p>
+          <p>&copy; {new Date().getFullYear()} ByteMarket — Todos los derechos reservados</p>
         </footer>
       </div>
     </AuthProvider>

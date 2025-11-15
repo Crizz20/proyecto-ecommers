@@ -11,7 +11,7 @@ export default function InputCustom({ isPassword, ...props }) {
       <input
         {...props}
         type={isPassword ? (showPassword ? "text" : "password") : props.type || "text"}
-        style={{ width: "100%", paddingRight: "11px" }} // espacio para el icono
+        style={{ width: "100%", paddingRight: "11px" }}
       />
 
       {isPassword && (
