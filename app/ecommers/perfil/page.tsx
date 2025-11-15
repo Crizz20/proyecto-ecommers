@@ -4,8 +4,15 @@ import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/navigation";
 import "../../styles/perfil.css";
 
+interface Usuario {
+	nombre?: string;
+	email?: string;
+	telefono?: string;
+	direccion?: string;
+}
+
 export default function PerfilPage() {
-	const { usuario, logout } = useAuth();
+	const { usuario, logout } = useAuth() as { usuario: Usuario | null; logout: () => void };
 	const router = useRouter();
 	const [isEditing, setIsEditing] = useState(false);
 	const [formData, setFormData] = useState({
@@ -30,7 +37,7 @@ export default function PerfilPage() {
 		});
 	}, [usuario, router]);
 
-	const handleChange = (e) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setFormData((prev) => ({
 			...prev,
@@ -46,29 +53,42 @@ export default function PerfilPage() {
 
 		setIsLoading(true);
 		try {
+			const token = localStorage.getItem("token");
+			
+			if (!token) {
+				setMessage("No hay sesión activa. Por favor inicia sesión nuevamente.");
+				router.push("/ecommers/login");
+				return;
+			}
+
 			const res = await fetch("/api/usuarios/perfil", {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
-					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					Authorization: `Bearer ${token}`,
 				},
 				body: JSON.stringify(formData),
 			});
 
-			const data = await res.json();
-
-			if (res.ok) {
-				setMessage("✅ Perfil actualizado exitosamente");
-				setIsEditing(false);
-				// Actualizar contexto con nuevos datos
-				localStorage.setItem("usuario", JSON.stringify({ ...usuario, ...formData }));
-				setTimeout(() => setMessage(""), 3000);
-			} else {
-				setMessage(data.msg || "Error al actualizar perfil");
+			if (!res.ok) {
+				const data = await res.json();
+				setMessage(data.msg || `Error: ${res.status}`);
+				return;
 			}
-		} catch (error) {
-			setMessage("Error de conexión");
-			console.error(error);
+
+			const data = await res.json();
+			setMessage("✅ Perfil actualizado exitosamente");
+			setIsEditing(false);
+			
+			// Actualizar contexto con nuevos datos
+			if (usuario) {
+				localStorage.setItem("usuario", JSON.stringify({ ...usuario, ...formData }));
+			}
+			
+			setTimeout(() => setMessage(""), 3000);
+		} catch (error: unknown) {
+			console.error("Error:", error);
+			setMessage("Error de conexión. Intenta de nuevo.");
 		} finally {
 			setIsLoading(false);
 		}
@@ -139,7 +159,7 @@ export default function PerfilPage() {
 							</div>
 
 							<div className="perfil-form-group">
-								<label>Email *</label>
+								<label>Email * <span className="perfil-email-note">(No editable)</span></label>
 								<input
 									type="email"
 									name="email"

@@ -69,13 +69,7 @@ export default function Navbar() {
                     >
                       🛒 Mi Carrito
                     </Link>
-                    <Link 
-                      href="/ecommers/pedidos" 
-                      className="user-dropdown-item"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      📦 Mis Pedidos
-                    </Link>
+                      
                   </div>
                   
                   <div className="user-dropdown-divider"></div>
